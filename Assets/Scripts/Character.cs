@@ -28,7 +28,7 @@ public class Character : MonoBehaviour
         if (!moving)
         {
             // Check for key presses to move forward
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             {
                 moving = true;
                 startPos = transform.position;
@@ -42,7 +42,7 @@ public class Character : MonoBehaviour
                 gameManager.moveForward();
             }
             // Check for key presses to move left
-            else if (transform.position.x > -4 && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)))
+            else if (transform.position.x > -4 && (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)))
             {
                 moving = true;
                 startPos = transform.position;
@@ -53,7 +53,7 @@ public class Character : MonoBehaviour
                 rb.velocity = new Vector3(0, jumpVelocity, 0);
             }
             // Check for key presses to move right
-            else if (transform.position.x < 4 && (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)))
+            else if (transform.position.x < 4 && (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)))
             {
                 moving = true;
                 startPos = transform.position;

@@ -26,10 +26,6 @@ public class GameManager : MonoBehaviour
         mapTiles.Add(0, Instantiate(grassPrefab, new Vector3(0, 0, 0), Quaternion.identity, map));
         mapTiles.Add(1, Instantiate(grassPrefab, new Vector3(0, 0, 1), Quaternion.identity, map));
 
-        for (int i = 2; i < 12; i++)
-        {
-            mapTiles.Add(i, Instantiate(grassPrefab, new Vector3(0, 0, i), Quaternion.identity, map));
-        }
         nextTileIndex = mapTiles.Count;
     }
 

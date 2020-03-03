@@ -417,11 +417,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 114
   m_CollisionDetection: 0
 --- !u!1 &1475028934
 GameObject:
@@ -454,12 +454,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   map: {fileID: 2100890095}
-  grassPrefab: {fileID: 8584779202400005663, guid: 36e40c74b2d181f42be5e6f5b1ba0ec4,
+  grassPrefab: {fileID: 1685733683633941191, guid: 886bbbf1028189e42856c415bb755cfa,
     type: 3}
-  roadPrefab: {fileID: 5657180091798723505, guid: 034f966d98af45c47ad207292a604a03,
+  roadPrefab: {fileID: 6292274682042865786, guid: 034f966d98af45c47ad207292a604a03,
     type: 3}
   mapTilesToKeep: 10
-  minimumTiles: 20
+  minimumTiles: 22
 --- !u!4 &1475028936
 Transform:
   m_ObjectHideFlags: 0
