@@ -28,7 +28,7 @@ public class Character : MonoBehaviour
         if (!moving)
         {
             // Check for key presses to move forward
-            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+            if (ShouldMoveForward())
             {
                 moving = true;
                 startPos = transform.position;
@@ -42,7 +42,7 @@ public class Character : MonoBehaviour
                 gameManager.moveForward();
             }
             // Check for key presses to move left
-            else if (transform.position.x > -4 && (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)))
+            else if (ShouldMoveLeft())
             {
                 moving = true;
                 startPos = transform.position;
@@ -53,7 +53,7 @@ public class Character : MonoBehaviour
                 rb.velocity = new Vector3(0, jumpVelocity, 0);
             }
             // Check for key presses to move right
-            else if (transform.position.x < 4 && (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)))
+            else if (ShouldMoveRight())
             {
                 moving = true;
                 startPos = transform.position;
@@ -84,5 +84,73 @@ public class Character : MonoBehaviour
                 moving = false;
             }
         }
+    }
+
+    // Called when the character is hit by a car
+    private void OnTriggerEnter(Collider other)
+    {
+        if (enabled)
+        {
+            gameManager.StopPlaying();
+        }
+    }
+
+    // Checks if the character should move forwards
+    private bool ShouldMoveForward()
+    {
+        bool shouldMove = false;
+        // Check for input
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        {
+            // Make sure the tile to the left isn't occupied
+            Grass grassTile = gameManager.mapTiles[gameManager.score + 1].GetComponent<Grass>();
+            if (!grassTile || (grassTile && !grassTile.IsTileOccupied((int)transform.position.x)))
+            {
+                shouldMove = true;
+            }
+        }
+        return shouldMove;
+    }
+
+    // Checks if the character should move to the left
+    private bool ShouldMoveLeft()
+    {
+        bool shouldMove = false;
+        // Check for input
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
+            // Make sure its not at the edge of the map
+            if (transform.position.x > -4)
+            {
+                // Make sure the tile to the left isn't occupied
+                Grass grassTile = gameManager.mapTiles[gameManager.score].GetComponent<Grass>();
+                if (!grassTile || (grassTile && !grassTile.IsTileOccupied((int)transform.position.x - 1)))
+                {
+                    shouldMove = true;
+                }
+            }
+        }
+        return shouldMove;
+    }
+
+    // Checks if the character should move to the right
+    private bool ShouldMoveRight()
+    {
+        bool shouldMove = false;
+        // Check for input
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+            // Make sure its not at the edge of the map
+            if (transform.position.x < 4)
+            {
+                // Make sure the tile to the right isn't occupied
+                Grass grassTile = gameManager.mapTiles[gameManager.score].GetComponent<Grass>();
+                if (!grassTile || (grassTile && !grassTile.IsTileOccupied((int)transform.position.x + 1)))
+                {
+                    shouldMove = true;
+                }
+            }
+        }
+        return shouldMove;
     }
 }

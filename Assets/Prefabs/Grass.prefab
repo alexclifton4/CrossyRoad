@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8399388947760938379}
   - component: {fileID: 3574673212530303486}
+  - component: {fileID: 1386596215677142342}
   m_Layer: 0
   m_Name: Grass
   m_TagString: Untagged
@@ -29,8 +30,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7890585118509024010}
-  - {fileID: 6352358807757671064}
   - {fileID: 2543517450129974639}
+  - {fileID: 6352358807757671064}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47,6 +48,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: 0
+--- !u!114 &1386596215677142342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685733683633941191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 392f4a7de9033d641859023b52ac5e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treePrefab: {fileID: 7570694392760621435, guid: c21d2aadad2598f409a5f3c97658e51d,
+    type: 3}
+  rockPrefab: {fileID: 8734467597209408181, guid: edd68fa3c5792e4448043171b1be146b,
+    type: 3}
 --- !u!1 &3520997778369384294
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,7 +95,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 8399388947760938379}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &3961984649382832906
 MeshFilter:
@@ -266,7 +283,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 8399388947760938379}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!33 &7538017664296466042
 MeshFilter:

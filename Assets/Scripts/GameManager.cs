@@ -5,7 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int score = 0;
+    public bool playing = true;
 
+    public Character character;
     public Transform map;
     public GameObject grassPrefab;
     public GameObject roadPrefab;
@@ -87,5 +89,12 @@ public class GameManager : MonoBehaviour
             mapTiles.Add(nextTileIndex, Instantiate(roadPrefab, new Vector3(0, 0, nextTileIndex), Quaternion.identity, map));
             nextTileIndex++;
         }
+    }
+
+    // Stops the game
+    public void StopPlaying()
+    {
+        // Disable the character
+        character.enabled = false;
     }
 }
