@@ -25,19 +25,18 @@ public class Road : MonoBehaviour
         }
         vehicleObj.transform.position = new Vector3(startPos, 0, transform.position.z);
         Vehicle vehicle = vehicleObj.GetComponent<Vehicle>();
+        vehicle.speed = Random.Range(4f, 8f);
 
         // Choose either left or right
         if (Random.value > 0.5)
         {
             // Right
             vehicle.direction = 1;
-            vehicle.speed = Random.Range(4f, 8f);
             vehicle.loopPosition = Random.Range(5.5f, 10f);
         } else
         {
             // Left
             vehicle.direction = -1;
-            vehicle.speed = Random.Range(-4f, -8f);
             vehicle.loopPosition = Random.Range(-5.5f, -10f);
         }
     }

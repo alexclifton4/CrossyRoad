@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +11,10 @@ public class GameManager : MonoBehaviour
 
     public Character character;
     public Transform map;
+    public Text scoreTextHeader;
+    public Text scoreText;
+    public Button playAgainButton;
+
     public GameObject grassPrefab;
     public GameObject roadPrefab;
     public int mapTilesToKeep;
@@ -63,6 +69,9 @@ public class GameManager : MonoBehaviour
             Destroy(mapTiles[score - mapTilesToKeep]);
             mapTiles.Remove(score - mapTilesToKeep);
         }
+
+        // Display the score
+        scoreText.text = score.ToString();
     }
 
     // Creates a grass segment to add to the map
@@ -96,5 +105,18 @@ public class GameManager : MonoBehaviour
     {
         // Disable the character
         character.enabled = false;
+
+        // Animate the score
+        scoreText.GetComponent<TextAnimation>().startAnimation();
+        scoreTextHeader.gameObject.SetActive(false);
+
+        // Display the play again button
+        playAgainButton.gameObject.SetActive(true);
+    }
+
+    // Restart the scene when the button is pressed
+    public void playAgain()
+    {
+        SceneManager.LoadScene("CrossyRoad");
     }
 }

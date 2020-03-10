@@ -91,7 +91,11 @@ public class Character : MonoBehaviour
     {
         if (enabled)
         {
+            // Tell the game manager to stop the game
             gameManager.StopPlaying();
+
+            // Tell the car that is has been hit
+            other.gameObject.GetComponentInParent<Vehicle>().Stop();
         }
     }
 
